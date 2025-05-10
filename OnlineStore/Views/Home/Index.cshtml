@@ -1,8 +1,29 @@
-﻿@{
+﻿@model List<OnlineStore.Models.HomeCard>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to our Online Store</h1>
+    <p>Find amazing  prducts at great prices!</p>
 </div>
+<div class="row mt-4">
+
+
+    @foreach(var card in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <h5 class="card-body text-center">@card.Title</h5>
+                <p class="card-text">@card.Description</p>
+                <a asp-controller="@card.ControllerName" asp-action="@card.ActionName" class="btn btn-primary ">
+                    @card.ButtonText
+                </a>
+            </div>
+
+        </div>
+
+    }
+   
+  

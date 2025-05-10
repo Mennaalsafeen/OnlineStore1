@@ -15,13 +15,59 @@ namespace OnlineStore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var cards = new List<HomeCard>
+            {
+                new HomeCard
+                {
+                    Title= "New Arrivals",
+                    Description="Check out our latest products.",
+                    ActionName="Products",
+                    ControllerName="Home",
+                    ButtonText="View Products",
+
+                },
+
+                 new HomeCard
+                {
+                    Title= "Special Offers",
+                    Description="Explore our current deals and discounts.",
+                    ActionName="Offers",
+                    ControllerName="Home",
+                    ButtonText="View Offers",
+
+                },
+                  new HomeCard
+                {
+                    Title= "Categories",
+                    Description="Browse products by categories.",
+                    ActionName="Categories",
+                    ControllerName="Home",
+                    ButtonText="View Categories",
+
+                },
+                      new HomeCard
+                {
+                    Title= "Customer Reviews",
+                    Description="See what our customers are saying.",
+                    ActionName="Reviews",
+                    ControllerName="Home",
+                    ButtonText=" Read Reviews",
+
+                }
+            };
+            return View(cards);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Products()
         {
             return View();
         }
+
+        public IActionResult Categories()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
